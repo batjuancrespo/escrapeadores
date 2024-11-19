@@ -111,14 +111,14 @@ def update_google_sheet(result_text, next_match_text):
     # Abre la hoja y selecciona Hoja 4
     sheet = client.open("ALMACEN PARA LA APP").worksheet("Hoja 4")
 
-    # Escribe el último resultado en la fila 3, columna 1
+    # Escribe el último resultado en la fila 3, columna 2
     if result_text:
-        sheet.update_cell(5, 1, result_text)
+        sheet.update_cell(5, 2, result_text)
         print("Último resultado actualizado en Google Sheets.")
 
     # Escribe el próximo partido en la fila 4, columna 1
     if next_match_text:
-        sheet.update_cell(6, 1, next_match_text)
+        sheet.update_cell(6, 2, next_match_text)
         print("Próximo partido actualizado en Google Sheets.")
 
 
