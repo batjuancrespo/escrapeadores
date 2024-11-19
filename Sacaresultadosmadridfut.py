@@ -116,7 +116,7 @@ def update_google_sheet(result_text, next_match_text):
         sheet.update_cell(3, 2, result_text)
         print("Último resultado actualizado en Google Sheets.")
 
-    # Escribe el próximo partido en la fila 4, columna 1
+    # Escribe el próximo partido en la fila 4, columna 2
     if next_match_text:
         sheet.update_cell(4, 2, next_match_text)
         print("Próximo partido actualizado en Google Sheets.")
