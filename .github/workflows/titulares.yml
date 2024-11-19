@@ -23,8 +23,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install gspread oauth2client beautifulsoup4 requests
 
-    - name: Crear archivo de credenciales
-      run: echo "${{ secrets.GOOGLE_CREDENTIALS }}" > credentials.json
+    - name: Inspeccionar archivo credentials.json
+      run: |
+        echo "${{ secrets.GOOGLE_CREDENTIALS }}" > credentials.json
+        cat credentials.json
+
 
     - name: Ejecutar script
       run: python titulares.py
