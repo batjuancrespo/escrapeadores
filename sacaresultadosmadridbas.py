@@ -119,11 +119,11 @@ def upload_to_sheet(last_match_result, next_match_info):
     last_match_data = f"Ultimo resultado R. Madrid (BAS): {last_match_result}"
     next_match_data = f"Próximo partido R. Madrid (BAS): {next_match_info}"
 
-    # Sube el último resultado a la fila 1, columna A
-    sheet.update('A1', [[last_match_data]])
+    # Sube el último resultado a la fila 1, columna B
+    sheet.update('B1', [[last_match_data]])
 
-    # Sube la información del próximo partido a la fila 2, columna A
-    sheet.update('A2', [[next_match_data]])
+    # Sube la información del próximo partido a la fila 2, columna B
+    sheet.update('B2', [[next_match_data]])
 
     print("Datos subidos exitosamente a la hoja de cálculo.")
 
