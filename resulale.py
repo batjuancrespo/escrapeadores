@@ -80,7 +80,7 @@ while jornada_actual > 0:
 
         # Añadir resultado a la fila 8
         for i, resultado in enumerate(resultados, start=10):
-            sheet.update_cell(i, 1, f"Club (ALE): {resultado}")  # Columna 1
+            sheet.update_cell(i, 2, f"Club (ALE): {resultado}")  # Columna 1
 
         break
 
