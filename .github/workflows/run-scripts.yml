@@ -34,11 +34,5 @@ jobs:
     - name: Run all scripts
       run: |
         python titulares.py
-        python sacaresultadosmadridbas.py
-        python Sacaresultadosracing.py
+
         python Sacaresultadosmadridfut.py
-        python resulale.py
-        python resulben.py
-        python resulcad.py
-        python resulinfan.py
-        python resultjunior.py
