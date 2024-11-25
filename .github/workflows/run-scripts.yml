@@ -1,5 +1,9 @@
 name: Run All Python Scripts Hourly
+- name: Setup Chrome
+  uses: browser-actions/setup-chrome@latest
 
+- name: Setup ChromeDriver
+  uses: nanasess/setup-chromedriver@master
 on:
   schedule:
     - cron: '0 * * * *'  # Runs every hour
