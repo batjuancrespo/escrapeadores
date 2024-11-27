@@ -34,5 +34,5 @@ jobs:
     - name: Run all scripts
       run: |
         python titulares.py
-
+        python resulale.py
         python Sacaresultadosmadridfut.py
