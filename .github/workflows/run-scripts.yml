@@ -40,3 +40,5 @@ jobs:
         python resulcad.py
         python resulinfan.py
         python resultjunior.py
+        python Sacaresultadosracing.py
+        python sacaresultadosmadridbas.py
