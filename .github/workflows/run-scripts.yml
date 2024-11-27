@@ -1,44 +1,71 @@
-name: Run All Python Scripts Hourly
+name: Run Python Scripts
 
 on:
-  schedule:
-    - cron: '0 * * * *'  # Runs every hour
   workflow_dispatch:  # Allows manual triggering
+  schedule:
+    # titulares.py: Every hour except between 2 AM and 5 AM
+    - cron: '0 0-1,6-23 * * *'
+    # Sacaresultados scripts: 3 PM, 6 PM, 9 PM, 12 AM daily
+    - cron: '0 15,18,21,0 * * *'
+    # Weekend scripts: Saturdays and Sundays at 1 PM, 4 PM, and 9 PM
+    - cron: '0 13,16,21 * * 6,7'
 
 jobs:
-  run-all-scripts:
+  # Job for titulares.py
+  run-titulares:
     runs-on: ubuntu-latest
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     steps:
-    - uses: actions/checkout@v2
-    
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.10'
-    
-    - name: Setup Chrome
-      uses: browser-actions/setup-chrome@latest
-    
-    - name: Setup ChromeDriver
-      uses: nanasess/setup-chromedriver@master
-    
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        pip install webdriver_manager
-    
-    - name: Create credentials file
-      run: echo '${{ secrets.GOOGLE_CREDENTIALS }}' > credentials.json
-    
-    - name: Run all scripts
-      run: |
-        python titulares.py
-        python resulale.py
-        python Sacaresultadosmadridfut.py
-        python resulben.py
-        python resulcad.py
-        python resulinfan.py
-        python resultjunior.py
-        python Sacaresultadosracing.py
-        python sacaresultadosmadridbas.py
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run titulares.py
+        run: python titulares.py
+
+  # Job for Sacaresultados scripts
+  run-sacaresultados:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run Sacaresultados scripts
+        run: |
+          python Sacaresultadosmadridfut.py
+          python Sacaresultadosracing.py
+          python sacaresultadosmadridbas.py
+
+  # Job for weekend scripts
+  run-weekend-scripts:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run weekend scripts
+        run: |
+          python resulben.py
+          python resulale.py
+          python resulinfan.py
+          python resulcad.py
+          python resultjunior.py
