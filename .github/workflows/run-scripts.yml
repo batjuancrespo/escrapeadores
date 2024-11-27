@@ -36,3 +36,7 @@ jobs:
         python titulares.py
         python resulale.py
         python Sacaresultadosmadridfut.py
+        python resulben.py
+        python resulcad.py
+        python resulinfan.py
+        python resultjunior.py
