@@ -20,11 +20,11 @@ on:
     # Weekend scripts: Saturday 9 PM
     - cron: '0 21 * * 6'
     # Weekend scripts: Sunday 1 PM
-    - cron: '0 13 * * 7'
+    - cron: '0 13 * * 0'
     # Weekend scripts: Sunday 4 PM
-    - cron: '0 16 * * 7'
+    - cron: '0 16 * * 0'
     # Weekend scripts: Sunday 9 PM
-    - cron: '0 21 * * 7'
+    - cron: '0 21 * * 0'
 
 jobs:
   # Job for titulares.py
