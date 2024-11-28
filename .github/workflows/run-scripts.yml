@@ -7,8 +7,10 @@ on:
     - cron: '0 0-1,6-23 * * *'
     # Sacaresultados scripts: 3 PM, 6 PM, 9 PM, 12 AM daily
     - cron: '0 15,18,21,0 * * *'
-    # Weekend scripts: Saturdays and Sundays at 1 PM, 4 PM, and 9 PM
-    - cron: '0 13,16,21 * * 6,7'
+    # Weekend scripts: Saturdays at 1 PM, 4 PM, and 9 PM
+    - cron: '0 13,16,21 * * 6'
+    # Weekend scripts: Sundays at 1 PM, 4 PM, and 9 PM
+    - cron: '0 13,16,21 * * 7'
 
 jobs:
   # Job for titulares.py
